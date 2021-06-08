@@ -1,0 +1,5 @@
+<mat-form-field>
+  <input type="text" matInput placeholder="name" [formControl]="name" />
+</mat-form-field>
+<p>Value name: {{ name.value }}</p>
+<button mat-button (click)="setValueName()">reset a naruto kun</button>

@@ -16,9 +16,11 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import { EditDialogComponent } from './edit-dialog/edit-dialog.component';
+import { FormReactiveComponent } from './components/form-reactive/form-reactive.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [CreateComponent, ListComponent, EditDialogComponent],
+  declarations: [CreateComponent, ListComponent, EditDialogComponent, FormReactiveComponent],
   imports: [
     CommonModule,
     CursoRoutingModule,
@@ -33,6 +35,7 @@ import { EditDialogComponent } from './edit-dialog/edit-dialog.component';
     MatDialogModule,
     MatButtonModule,
     MatIconModule,
+    ReactiveFormsModule
   ],
 })
 export class CursoModule {}
