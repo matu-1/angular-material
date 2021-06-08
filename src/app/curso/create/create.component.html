@@ -1,0 +1,33 @@
+<mat-card>
+  <mat-card-title>Nuevo curso</mat-card-title>
+  <mat-card-content>
+    <form>
+      <mat-form-field>
+        <!-- <mat-label>Nombre</mat-label> -->
+        <input matInput type="text" placeholder="Nombre completo" />
+      </mat-form-field>
+      <mat-form-field>
+        <textarea matInput type="text" placeholder="Descripcion"></textarea>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-select placeholder="Especialidad">
+          <mat-option value="1">Php</mat-option>
+          <mat-option value="2">Java</mat-option>
+          <mat-option value="2">Typescript</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          [matDatepicker]="fechaInicio"
+          placeholder="Fecha inicio"
+        />
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="fechaInicio"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #fechaInicio></mat-datepicker>
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+</mat-card>
