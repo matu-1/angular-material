@@ -1,7 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Curso } from '../curso';
+import { EditDialogComponent } from '../edit-dialog/edit-dialog.component';
 
 const CURSOS: Curso[] = [
   {
@@ -40,7 +42,7 @@ const CURSOS: Curso[] = [
   styleUrls: ['./list.component.css'],
 })
 export class ListComponent implements OnInit {
-  @ViewChild(MatPaginator, { static: true})
+  @ViewChild(MatPaginator, { static: true })
   paginator!: MatPaginator;
   dataSource = new MatTableDataSource<Curso>(CURSOS);
   displayedColumns: string[] = [
@@ -49,8 +51,9 @@ export class ListComponent implements OnInit {
     'description',
     'specialty',
     'startDate',
+    'actions',
   ];
-  constructor() {}
+  constructor(public dialog: MatDialog) {}
 
   ngOnInit(): void {
     this.dataSource.paginator = this.paginator;
@@ -58,5 +61,17 @@ export class ListComponent implements OnInit {
 
   onFilter(target: any) {
     this.dataSource.filter = (target.value as string).trim().toLowerCase();
+  }
+
+  onEdit(curso: Curso) {
+    console.log('edit', curso);
+    this.openDialog(curso);
+  }
+
+  openDialog(curso: Curso) {
+    const dialogRef = this.dialog.open(EditDialogComponent, {
+      width: '600px',
+      data: curso
+    });
   }
 }

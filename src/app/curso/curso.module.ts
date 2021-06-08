@@ -12,9 +12,13 @@ import { MatNativeDateModule } from '@angular/material/core';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
+import { EditDialogComponent } from './edit-dialog/edit-dialog.component';
 
 @NgModule({
-  declarations: [CreateComponent, ListComponent],
+  declarations: [CreateComponent, ListComponent, EditDialogComponent],
   imports: [
     CommonModule,
     CursoRoutingModule,
@@ -26,6 +30,9 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     MatTabsModule,
     MatTableModule,
     MatPaginatorModule,
+    MatDialogModule,
+    MatButtonModule,
+    MatIconModule,
   ],
 })
 export class CursoModule {}
