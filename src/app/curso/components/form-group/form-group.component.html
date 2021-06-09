@@ -1,0 +1,50 @@
+<pre>
+  {{ profileForm.value | json }}
+</pre>
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+  <div fxLayout="row wrap" fxLayoutGap="16px grid">
+    <mat-form-field fxFlex="50%" fxFlex.xs="100%">
+      <input
+        type="text"
+        matInput
+        placeholder="Fist name"
+        formControlName="firstName"
+      />
+    </mat-form-field>
+    <mat-form-field fxFlex="50%" fxFlex.xs="100%">
+      <input
+        type="text"
+        matInput
+        placeholder="Last name"
+        formControlName="lastName"
+      />
+    </mat-form-field>
+    <mat-form-field fxFlex="50%" fxFlex.xs="100%">
+      <input
+        type="text"
+        matInput
+        placeholder="Fist name"
+        formControlName="firstName"
+      />
+    </mat-form-field>
+    <mat-form-field fxFlex="50%" fxFlex.xs="100%">
+      <input
+        type="text"
+        matInput
+        placeholder="Last name"
+        formControlName="lastName"
+      />
+    </mat-form-field>
+  </div>
+  <button mat-raised-button [disabled]="profileForm.invalid" type="submit">
+    Guardar
+  </button>
+  <button
+    mat-raised-button
+    [disabled]="profileForm.invalid"
+    type="button"
+    (click)="update()"
+  >
+    Update
+  </button>
+</form>

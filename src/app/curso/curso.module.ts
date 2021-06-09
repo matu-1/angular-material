@@ -18,9 +18,11 @@ import {MatIconModule} from '@angular/material/icon';
 import { EditDialogComponent } from './edit-dialog/edit-dialog.component';
 import { FormReactiveComponent } from './components/form-reactive/form-reactive.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FormGroupComponent } from './components/form-group/form-group.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
-  declarations: [CreateComponent, ListComponent, EditDialogComponent, FormReactiveComponent],
+  declarations: [CreateComponent, ListComponent, EditDialogComponent, FormReactiveComponent, FormGroupComponent],
   imports: [
     CommonModule,
     CursoRoutingModule,
@@ -35,7 +37,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatDialogModule,
     MatButtonModule,
     MatIconModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FlexLayoutModule
   ],
 })
 export class CursoModule {}
