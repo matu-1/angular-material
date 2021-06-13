@@ -1,5 +1,5 @@
 <div [ngSwitch]="this.formValue.inputType" [formGroup]="form">
-  <mat-form-field *ngSwitchCase="InputType.dropdown">
+  <mat-form-field *ngSwitchCase="InputType.dropdown" [appearance]="appearance">
     <mat-label>{{ this.formValue.label }}</mat-label>
     <mat-select [formControlName]="this.formValue.key">
       <mat-option
@@ -15,7 +15,7 @@
       </span>
     </mat-error>
   </mat-form-field>
-  <mat-form-field *ngSwitchCase="InputType.datepicker">
+  <mat-form-field *ngSwitchCase="InputType.datepicker" [appearance]="appearance">
     <mat-label>{{ this.formValue.label }}</mat-label>
     <input
       matInput
@@ -30,7 +30,7 @@
       </span>
     </mat-error>
   </mat-form-field>
-  <mat-form-field *ngSwitchCase="InputType.autocomplete">
+  <mat-form-field *ngSwitchCase="InputType.autocomplete" [appearance]="appearance">
     <mat-label>{{ this.formValue.label }}</mat-label>
     <input
       matInput
@@ -63,7 +63,7 @@
       </span>
     </mat-error>
   </mat-form-field>
-  <mat-form-field *ngSwitchDefault>
+  <mat-form-field *ngSwitchDefault [appearance]="appearance">
     <mat-label>{{ this.formValue.label }}</mat-label>
     <input
       matInput

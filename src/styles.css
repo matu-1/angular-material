@@ -28,3 +28,9 @@ table {
 .full {
   width: 100%;
 }
+.no-mb{
+  margin-bottom: 0 !important;
+}
+app-text-field {
+  padding-bottom: 0 !important;
+}

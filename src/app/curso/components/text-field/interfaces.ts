@@ -1,4 +1,5 @@
 import { ValidatorFn } from '@angular/forms';
+import { MatFormFieldAppearance } from '@angular/material/form-field';
 
 export enum InputType {
   textField,
@@ -32,6 +33,7 @@ export interface FormValue {
   value?: any;
   label: string;
   type?: Type;
+  appearance?: MatFormFieldAppearance
   inputType: InputType;
   options?: Option[];
   validator?: Validator[];

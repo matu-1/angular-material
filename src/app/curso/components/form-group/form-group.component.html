@@ -1,9 +1,10 @@
 {{ clienteForm.value | json }}
 <form [formGroup]="clienteForm" (ngSubmit)="onSubmit()">
-  <div fxLayout="row wrap" fxLayoutGap="16px grid">
+  <div fxLayout="row wrap" fxLayoutGap="16px grid" class="no-mb">
     <app-text-field
       *ngFor="let item of this.formSchema"
       fxFlex="50%"
+      fxFlex.xs="100%"
       [formValue]="item"
       [form]="this.clienteForm"
     ></app-text-field>

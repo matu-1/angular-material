@@ -25,6 +25,10 @@ export class TextFieldComponent implements OnInit {
     return this.form.get(this.formValue.key);
   }
 
+  get appearance() {
+    return this.formValue.appearance?? 'legacy';
+  }
+
   ngOnInit(): void {
     if (this.control && this.formValue.options) {
       this.filteredOptions = this.control.valueChanges.pipe(
