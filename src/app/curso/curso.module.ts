@@ -20,9 +20,11 @@ import { FormReactiveComponent } from './components/form-reactive/form-reactive.
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormGroupComponent } from './components/form-group/form-group.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { TextFieldComponent } from './components/text-field/text-field.component';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
 @NgModule({
-  declarations: [CreateComponent, ListComponent, EditDialogComponent, FormReactiveComponent, FormGroupComponent],
+  declarations: [CreateComponent, ListComponent, EditDialogComponent, FormReactiveComponent, FormGroupComponent, TextFieldComponent],
   imports: [
     CommonModule,
     CursoRoutingModule,
@@ -38,7 +40,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatButtonModule,
     MatIconModule,
     ReactiveFormsModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatAutocompleteModule,
   ],
 })
 export class CursoModule {}

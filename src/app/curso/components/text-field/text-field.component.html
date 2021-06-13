@@ -1,0 +1,80 @@
+<div [ngSwitch]="this.formValue.inputType" [formGroup]="form">
+  <mat-form-field *ngSwitchCase="InputType.dropdown">
+    <mat-label>{{ this.formValue.label }}</mat-label>
+    <mat-select [formControlName]="this.formValue.key">
+      <mat-option
+        *ngFor="let item of this.formValue.options"
+        [value]="item.value"
+      >
+        {{ item.label }}
+      </mat-option>
+    </mat-select>
+    <mat-error *ngFor="let item of this.formValue?.validator">
+      <span *ngIf="control?.hasError(item.key)">
+        {{ item.message }}
+      </span>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field *ngSwitchCase="InputType.datepicker">
+    <mat-label>{{ this.formValue.label }}</mat-label>
+    <input
+      matInput
+      [matDatepicker]="picker"
+      [formControlName]="this.formValue.key"
+    />
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+    <mat-error *ngFor="let item of this.formValue?.validator">
+      <span *ngIf="control?.hasError(item.key)">
+        {{ item.message }}
+      </span>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field *ngSwitchCase="InputType.autocomplete">
+    <mat-label>{{ this.formValue.label }}</mat-label>
+    <input
+      matInput
+      [matAutocomplete]="auto"
+      [formControlName]="this.formValue.key"
+    />
+    <mat-autocomplete
+      #auto="matAutocomplete"
+      [displayWith]="displayWith"
+      (closed)="onClosePanelAuto()"
+      (optionSelected)="onOptionSelected($event)"
+    >
+      <mat-option
+        *ngFor="let item of this.filteredOptions | async"
+        [value]="item"
+      >
+        {{ item.label }}
+      </mat-option>
+      <mat-option
+        *ngIf="(this.filteredOptions | async)?.length == 0"
+        [value]="0"
+        [disabled]="true"
+      >
+        No hay resultados
+      </mat-option>
+    </mat-autocomplete>
+    <mat-error *ngFor="let item of this.formValue?.validator">
+      <span *ngIf="control?.hasError(item.key)">
+        {{ item.message }}
+      </span>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field *ngSwitchDefault>
+    <mat-label>{{ this.formValue.label }}</mat-label>
+    <input
+      matInput
+      [type]="this.formValue.type??''"
+      [formControlName]="this.formValue.key"
+    />
+    <mat-error *ngFor="let item of this.formValue?.validator">
+      <span *ngIf="control?.hasError(item.key)">
+        {{ item.message }}
+      </span>
+    </mat-error>
+  </mat-form-field>
+  <!-- {{ this.control?.errors | json }} -->
+</div>

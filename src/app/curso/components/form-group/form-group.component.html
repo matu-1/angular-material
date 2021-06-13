@@ -1,50 +1,18 @@
-<pre>
-  {{ profileForm.value | json }}
-</pre>
-<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+{{ clienteForm.value | json }}
+<form [formGroup]="clienteForm" (ngSubmit)="onSubmit()">
   <div fxLayout="row wrap" fxLayoutGap="16px grid">
-    <mat-form-field fxFlex="50%" fxFlex.xs="100%">
-      <input
-        type="text"
-        matInput
-        placeholder="Fist name"
-        formControlName="firstName"
-      />
-    </mat-form-field>
-    <mat-form-field fxFlex="50%" fxFlex.xs="100%">
-      <input
-        type="text"
-        matInput
-        placeholder="Last name"
-        formControlName="lastName"
-      />
-    </mat-form-field>
-    <mat-form-field fxFlex="50%" fxFlex.xs="100%">
-      <input
-        type="text"
-        matInput
-        placeholder="Fist name"
-        formControlName="firstName"
-      />
-    </mat-form-field>
-    <mat-form-field fxFlex="50%" fxFlex.xs="100%">
-      <input
-        type="text"
-        matInput
-        placeholder="Last name"
-        formControlName="lastName"
-      />
-    </mat-form-field>
+    <app-text-field
+      *ngFor="let item of this.formSchema"
+      fxFlex="50%"
+      [formValue]="item"
+      [form]="this.clienteForm"
+    ></app-text-field>
   </div>
-  <button mat-raised-button [disabled]="profileForm.invalid" type="submit">
+  <button mat-raised-button [disabled]="clienteForm.invalid" type="submit">
     Guardar
   </button>
-  <button
-    mat-raised-button
-    [disabled]="profileForm.invalid"
-    type="button"
-    (click)="update()"
-  >
-    Update
+
+  <button mat-raised-button [disabled]="clienteForm.invalid" type="button" (click)="update()">
+    UPdate
   </button>
 </form>

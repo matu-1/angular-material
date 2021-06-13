@@ -1,30 +1,27 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
-
+import { TextFormInput } from '../text-field/text-form-input';
+import { TEST_SCHEMA } from './formSchema';
 @Component({
   selector: 'app-form-group',
   templateUrl: './form-group.component.html',
-  styleUrls: ['./form-group.component.css']
+  styleUrls: ['./form-group.component.css'],
 })
 export class FormGroupComponent implements OnInit {
-  profileForm = new FormGroup({
-    firstName: new FormControl(),
-    lastName: new FormControl(),
-  });
+  formSchema = TEST_SCHEMA;
+  clienteForm = TextFormInput.buildFormGroup(TEST_SCHEMA);
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  onSubmit() {
+    console.log('values', this.clienteForm.value);
   }
 
-  onSubmit(){
-    console.log('values', this.profileForm.value);
-  }
-
-  update(){
-    this.profileForm.patchValue({
-      firstName: 'naruto',
+  update() {
+    this.clienteForm.patchValue({
+      name: 'black cate',
       // lastName: 'uzumaki',
-    })
+    });
   }
 }
